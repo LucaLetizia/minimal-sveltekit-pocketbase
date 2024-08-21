@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+		<script>
+			const getSystemTheme = () => {
+				return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dark'
+					: 'light';
+			};
+			const loadTheme = () => {
+				const theme = localStorage?.getItem('theme');
+				if (!theme) {
+					document.documentElement.setAttribute('data-theme', getSystemTheme());
+					localStorage.setItem('theme', 'system');
+					return;
+				}
+				if (theme === 'system') {
+					document.documentElement.setAttribute('data-theme', getSystemTheme());
+					return;
+				}
+				document.documentElement.setAttribute('data-theme', theme);
+			};
+			loadTheme();
+		</script>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
