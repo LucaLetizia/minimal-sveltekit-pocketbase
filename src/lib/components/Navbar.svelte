@@ -20,7 +20,7 @@
 	let isDropdownOpen: boolean = $state(false);
 </script>
 
-<div class="navbar bg-base-100 mt-1">
+<div class="navbar sticky top-0 z-10 bg-base-100 mt-1">
 	<div class="navbar-start">
 		<a class="btn btn-ghost text-xl hidden lg:flex" href="/home">Home</a>
 	</div>
