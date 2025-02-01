@@ -31,6 +31,8 @@
 
 {#if !pb.authStore.isValid}
 	<div class="flex flex-col min-h-screen">
-		{@render children()}
+		<div class="flex-grow flex items-center justify-center bg-base-200">
+			{@render children()}
+		</div>
 	</div>
 {/if}
