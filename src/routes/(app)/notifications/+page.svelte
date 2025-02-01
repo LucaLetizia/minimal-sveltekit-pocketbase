@@ -5,7 +5,7 @@
 </script>
 
 <div class="container mx-auto p-6">
-	<div class="p-6 rounded-lg shadow-md">
+	<div class="p-6 rounded-lg shadow-md bg-base-100">
 		<h1 class="text-2xl font-bold mb-6">Sample Notifications Page</h1>
 
 		{#each notificationsState.notifications as notification, i}
