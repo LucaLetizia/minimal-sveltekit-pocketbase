@@ -25,6 +25,7 @@
 			await goto('/');
 		}
 	});
+
 	let {
 		children,
 		data
@@ -35,7 +36,7 @@
 </script>
 
 {#if pb.authStore.isValid}
-	<div class="flex flex-col min-h-screen">
+	<div class="flex flex-col min-h-screen bg-base-200 pb-16 lg:pb-0">
 		<Navbar></Navbar>
 		{@render children()}
 		<BottomNavigation></BottomNavigation>
