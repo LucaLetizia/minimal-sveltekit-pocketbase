@@ -3,7 +3,7 @@
 	import { type Snippet } from 'svelte';
 	import { setThemeState } from '$lib/states/theme.svelte';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	setThemeState();
 	let {
 		children,
@@ -15,8 +15,6 @@
 </script>
 
 <svelte:head>
-	<title
-		>{$page?.data?.title ? `${PUBLIC_APP_NAME} - ${$page?.data?.title}` : PUBLIC_APP_NAME}</title
-	>
+	<title>{page?.data?.title ? `${PUBLIC_APP_NAME} - ${page?.data?.title}` : PUBLIC_APP_NAME}</title>
 </svelte:head>
 {@render children()}
