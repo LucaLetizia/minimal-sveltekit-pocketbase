@@ -5,7 +5,7 @@
 	import MdiNotificationsNone from '~icons/mdi/notifications-none';
 	import MdiAdd from '~icons/mdi/add';
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { getNotificationsState } from '$lib/states/notifications.svelte';
 
 	const notificationsState = getNotificationsState();
@@ -32,7 +32,7 @@
 	];
 	let selectedTab = $state(-1);
 	$effect(() => {
-		const currentTab = tabs.findIndex((tab) => tab.pathName === $page?.url?.pathname);
+		const currentTab = tabs.findIndex((tab) => tab.pathName === page?.url?.pathname);
 		selectedTab = currentTab !== -1 ? currentTab : -1; // Default to -1 if no match is found
 	});
 </script>
@@ -45,7 +45,7 @@
 
 	<div class="indicator">
 		<span
-			class="indicator-item badge badge-primary"
+			class="badge indicator-item badge-primary"
 			class:hidden={!notificationsState.notifications.find((notification) => notification?.new)}
 			>{notificationsState.notifications.filter((notification) => notification?.new).length}</span
 		>
