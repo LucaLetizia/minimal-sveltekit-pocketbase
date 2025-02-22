@@ -25,7 +25,7 @@ Mobile-first, minimalistic starter template for web applications built with Svel
 <img src="static/screenshots/login.png" alt="Login" width="30%"/><br>
 <img src="static/screenshots/home.png" alt="Home" width="30%"/><br>
 <img src="static/screenshots/notifications.png" alt="Notifications" width="30%"/><br>
-<img src="static/screenshots/settings.png" alt="Settings" width="30%"/>
+<img src="static/screenshots/settings.png" alt="Settings" width="30%"/><br>
 <img src="static/screenshots/delete-account.png" alt="Settings" width="30%"/>
 
 ## Tech Stack
