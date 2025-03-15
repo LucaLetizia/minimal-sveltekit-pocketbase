@@ -10,7 +10,7 @@
 	setNotificationsState();
 	const { pb } = getPocketBaseInstance();
 
-	pb.authStore.onChange(async (token, model) => {
+	pb.authStore.onChange(async (token, record) => {
 		if (!token) await goto('/');
 	});
 	onMount(async () => {
