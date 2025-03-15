@@ -15,7 +15,7 @@
 	let alertType = $state('');
 	let alertMessage = $state('');
 
-	let email = $state(pb.authStore.model?.email ?? '');
+	let email = $state(pb.authStore.record?.email ?? '');
 
 	const handleChangeEmailClick = async () => {
 		try {
@@ -37,17 +37,17 @@
 	};
 </script>
 
-<div class="flex-grow flex items-center justify-center">
+<div class="flex flex-grow items-center justify-center">
 	<div class="container mx-auto p-4">
 		<div
-			class="card bg-base-100 shadow-xl p-6
-        max-w-md mx-auto lg:rounded-lg"
+			class="card mx-auto max-w-md bg-base-100
+        p-6 shadow-xl lg:rounded-lg"
 		>
-			<a href="/settings" class="btn btn-ghost text-left btn-circle text-xl"
+			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
-			<h2 class="text-2xl font-bold text-center mb-4">Change Email Address</h2>
-			<div class="form-control mb-4 relative">
+			<h2 class="mb-4 text-center text-2xl font-bold">Change Email Address</h2>
+			<div class="form-control relative mb-4">
 				<label class="label" for="email">
 					<span class="label-text">Current Email Address</span>
 				</label>
@@ -58,7 +58,7 @@
 					</label>
 				{/if}
 			</div>
-			<p class="text-center mb-4">
+			<p class="mb-4 text-center">
 				Upon clicking the "Change Email" button, you'll receive an email with a link to confirm your
 				new email address.
 			</p>
