@@ -20,17 +20,17 @@
 	let isDropdownOpen: boolean = $state(false);
 </script>
 
-<div class="navbar sticky top-0 z-10 bg-base-100 mt-1">
+<div class="navbar sticky top-0 z-10 mt-1 bg-base-100">
 	<div class="navbar-start">
-		<a class="btn btn-ghost text-xl hidden lg:flex" href="/home">Home</a>
+		<a class="btn btn-ghost hidden text-xl lg:flex" href="/home">Home</a>
 	</div>
 	<div class="navbar-end">
-		<a href="/create" class="btn btn-ghost btn-circle text-lg hidden lg:flex"><MdiAdd></MdiAdd></a>
+		<a href="/create" class="btn btn-circle btn-ghost hidden text-lg lg:flex"><MdiAdd></MdiAdd></a>
 		<div class="indicator">
 			<details class="dropdown dropdown-end" bind:open={isDropdownOpen}>
-				<summary class="btn btn-ghost btn-circle text-lg hidden lg:flex">
+				<summary class="btn btn-circle btn-ghost hidden text-lg lg:flex">
 					<span
-						class="indicator-item badge badge-primary"
+						class="badge indicator-item badge-primary"
 						class:hidden={!notificationsState.notifications.find(
 							(notification) => notification?.new
 						)}
@@ -38,9 +38,9 @@
 							.length}</span
 					><MdiNotificationsNone></MdiNotificationsNone></summary
 				>
-				<ul class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+				<ul class="menu dropdown-content z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
 					{#each notificationsState.notifications as notification, i}
-						<li class="mb-2 p-2 rounded-lg transition">
+						<li class="mb-2 rounded-lg p-2 transition">
 							<button
 								onclick={() => {
 									isDropdownOpen = !isDropdownOpen;
@@ -51,7 +51,7 @@
 								class="block"
 								class:bg-base-200={notification?.new}
 							>
-								<h3 class="font-semibold text-sm">{notification?.title}</h3>
+								<h3 class="text-sm font-semibold">{notification?.title}</h3>
 								<p class="text-xs text-gray-600">
 									{notification?.description}
 								</p>
@@ -63,7 +63,7 @@
 					<li>
 						<a
 							href="/notifications"
-							class="btn btn-base-100 btn-sm mt-4"
+							class="btn-base-100 btn btn-sm mt-4"
 							onclick={() => (isDropdownOpen = !isDropdownOpen)}>View all</a
 						>
 					</li>
@@ -72,20 +72,20 @@
 		</div>
 
 		{#if themeState.theme === 'dark'}
-			<button class="btn btn-ghost btn-circle text-lg" onclick={() => themeState.update('light')}>
+			<button class="btn btn-circle btn-ghost text-lg" onclick={() => themeState.update('light')}>
 				<MdiWhiteBalanceSunny></MdiWhiteBalanceSunny>
 			</button>
 		{:else}
-			<button class="btn btn-ghost btn-circle text-lg" onclick={() => themeState.update('dark')}>
+			<button class="btn btn-circle btn-ghost text-lg" onclick={() => themeState.update('dark')}>
 				<MdiMoonAndStars></MdiMoonAndStars>
 			</button>
 		{/if}
 		<button
-			class="avatar placeholder btn btn-ghost btn-circle"
+			class="avatar placeholder btn btn-circle btn-ghost"
 			onclick={() => (isDrawerOpen = !isDrawerOpen)}
 		>
-			<div class="bg-neutral text-neutral-content w-12 rounded-full">
-				<span>{pb?.authStore?.model?.username?.substring?.(0, 2).toUpperCase?.()}</span>
+			<div class="w-12 rounded-full bg-neutral text-neutral-content">
+				<span>{pb?.authStore?.record?.username?.substring?.(0, 2).toUpperCase?.()}</span>
 			</div>
 		</button>
 	</div>
