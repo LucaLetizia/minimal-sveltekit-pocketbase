@@ -36,25 +36,31 @@
 	};
 </script>
 
-<div class="flex-grow flex items-center justify-center">
+<div class="flex flex-grow items-center justify-center">
 	<div class="container mx-auto p-4">
 		<div
-			class="card bg-base-100 shadow-xl p-6
-        max-w-md mx-auto lg:rounded-lg"
+			class="card mx-auto max-w-md bg-base-100
+        p-6 shadow-xl lg:rounded-lg"
 		>
-			<a href="/login" class="btn btn-ghost text-left btn-circle text-xl"
+			<a href="/login" class="btn btn-circle text-left text-xl btn-ghost"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
-			<h2 class="text-2xl font-bold text-center mb-4">Forgot your password?</h2>
-			<p class="text-center mb-4">
+			<h2 class="mb-4 text-center text-2xl font-bold">Forgot your password?</h2>
+			<p class="mb-4 text-center">
 				No worries! Simply enter your registered email address below, and we'll send you
 				instructions on how to reset it.
 			</p>
-			<div class="form-control mb-4 relative">
+			<div class="form-control relative mb-4">
 				<label class="label" for="email">
 					<span class="label-text">Email Address</span>
 				</label>
-				<input type="email" id="email" class="input input-bordered" bind:value={email} />
+				<input
+					type="email"
+					id="email"
+					class="input-bordered input w-full"
+					placeholder="Current Email Address"
+					bind:value={email}
+				/>
 				{#if formErrors?.email}
 					<label class="label" for="email">
 						<span class="label-text text-error">{formErrors?.email}</span>
@@ -68,7 +74,7 @@
 				</div>
 			{/if}
 			<div class="text-center">
-				<button class="btn btn-primary min-w-full" onclick={handleResetPasswordClick}
+				<button class="btn min-w-full btn-primary" onclick={handleResetPasswordClick}
 					>Reset Password</button
 				>
 			</div>

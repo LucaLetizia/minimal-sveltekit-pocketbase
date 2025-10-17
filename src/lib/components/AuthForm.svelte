@@ -81,16 +81,16 @@
 	};
 </script>
 
-<div class="flex-grow flex items-center justify-center">
+<div class="flex flex-grow items-center justify-center">
 	<div class="card w-96 bg-base-100 shadow-xl">
 		<div class="card-body">
 			<h2 class="card-title text-center">{signUp ? 'Sign Up' : 'Log In'}</h2>
 			{#if signUp}
-				<div class="form-control mb-4 relative">
+				<div class="form-control relative mb-4">
 					<input
 						type="text"
 						id="username"
-						class="input input-bordered"
+						class="input-bordered input"
 						class:border-error={formErrors?.username}
 						placeholder="Username"
 						required
@@ -103,11 +103,11 @@
 					{/if}
 				</div>
 			{/if}
-			<div class="form-control mb-4 relative">
+			<div class="form-control relative mb-4">
 				<input
 					type="email"
 					id="email"
-					class="input input-bordered"
+					class="input-bordered input"
 					class:border-error={formErrors?.email}
 					placeholder="Email Address"
 					required
@@ -119,91 +119,91 @@
 					</label>
 				{/if}
 			</div>
-			<div class="form-control mb-4 relative">
-				<input
-					type={showPassword ? 'text' : 'password'}
-					id="password"
-					class="input input-bordered"
-					class:border-error={formErrors?.password}
-					placeholder="Password"
-					required
-					bind:value={password}
-				/>
-				{#if showPassword}
+			<div class="form-control mb-4">
+				<label class="input-bordered input relative flex items-center gap-2">
+					<input
+						type={showPassword ? 'text' : 'password'}
+						id="password"
+						class="grow"
+						class:border-error={formErrors?.password}
+						placeholder="Password"
+						required
+						bind:value={password}
+					/>
 					<button
-						class="absolute right-0 top-0 mt-3 mr-3 cursor-pointer"
+						type="button"
+						class="cursor-pointer"
 						onclick={() => (showPassword = !showPassword)}
 					>
-						<MdiEyeOff></MdiEyeOff>
+						{#if showPassword}
+							<MdiEyeOff />
+						{:else}
+							<MdiEye />
+						{/if}
 					</button>
-				{:else}
-					<button
-						class="absolute right-0 top-0 mt-3 mr-3 cursor-pointer"
-						onclick={() => (showPassword = !showPassword)}
-					>
-						<MdiEye></MdiEye>
-					</button>
-				{/if}
+				</label>
+
 				{#if formErrors?.password}
 					<label class="label" for="password">
-						<span class="label-text text-error">{formErrors?.password}</span>
+						<span class="label-text text-error">{formErrors.password}</span>
 					</label>
 				{/if}
 			</div>
+
 			{#if signUp}
-				<div class="form-control mb-4 relative">
-					<input
-						type={showConfirmPassword ? 'text' : 'password'}
-						id="confirm-password"
-						class="input input-bordered"
-						class:border-error={formErrors?.confirmPassword}
-						placeholder="Confirm Password"
-						required
-						bind:value={confirmPassword}
-					/>
-					{#if showConfirmPassword}
+				<div class="form-control mb-4">
+					<label class="input-bordered input relative flex items-center gap-2">
+						<input
+							type={showConfirmPassword ? 'text' : 'password'}
+							id="confirm-password"
+							class="grow"
+							class:border-error={formErrors?.confirmPassword}
+							placeholder="Confirm Password"
+							required
+							bind:value={confirmPassword}
+						/>
 						<button
-							class="absolute right-0 top-0 mt-3 mr-3 cursor-pointer"
+							type="button"
+							class="cursor-pointer"
 							onclick={() => (showConfirmPassword = !showConfirmPassword)}
 						>
-							<MdiEyeOff></MdiEyeOff>
+							{#if showConfirmPassword}
+								<MdiEyeOff />
+							{:else}
+								<MdiEye />
+							{/if}
 						</button>
-					{:else}
-						<button
-							class="absolute right-0 top-0 mt-3 mr-3 cursor-pointer"
-							onclick={() => (showConfirmPassword = !showConfirmPassword)}
-						>
-							<MdiEye></MdiEye>
-						</button>
-					{/if}
+					</label>
+
 					{#if formErrors?.confirmPassword}
 						<label class="label" for="confirm-password">
-							<span class="label-text text-error">{formErrors?.confirmPassword}</span>
+							<span class="label-text text-error">{formErrors.confirmPassword}</span>
 						</label>
 					{/if}
 				</div>
 			{/if}
+
 			{#if alertType && alertMessage}
 				<Alert type={alertType} message={alertMessage}></Alert>
 			{/if}
 			<div class="form-control">
 				<button
 					type="button"
-					class="btn btn-primary w-full"
+					class="btn w-full btn-primary"
 					onclick={signUp ? handleSignUpClick : handleLoginClick}
 					>{signUp ? 'Sign Up' : 'Log In'}</button
 				>
 			</div>
 			<div class="divider">OR</div>
 			<button
-				class="btn btn-primary flex items-center space-x-2"
+				class="btn flex items-center space-x-2 btn-primary"
 				onclick={async () => await handleProviderLoginClick('github')}
 			>
 				<MdiGithub class="text-lg"></MdiGithub>
 				<span>Continue with GitHub</span>
 			</button>
 			{#if !signUp}
-				<p class="text-sm text-center">
+				<p class="text-center text-sm">
 					<a href="/forgot-password" class="text-primary">Forgot your password?</a>
 				</p>
 			{/if}
