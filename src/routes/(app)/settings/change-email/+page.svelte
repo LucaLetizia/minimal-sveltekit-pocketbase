@@ -43,7 +43,7 @@
 			class="card mx-auto max-w-md bg-base-100
         p-6 shadow-xl lg:rounded-lg"
 		>
-			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
+			<a href="/settings" class="btn btn-circle text-left text-xl btn-ghost"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
 			<h2 class="mb-4 text-center text-2xl font-bold">Change Email Address</h2>
@@ -51,7 +51,7 @@
 				<label class="label" for="email">
 					<span class="label-text">Current Email Address</span>
 				</label>
-				<input type="email" id="email" class="input input-bordered" bind:value={email} />
+				<input type="email" id="email" class="input-bordered input w-full" bind:value={email} />
 				{#if formErrors?.email}
 					<label class="label" for="email">
 						<span class="label-text text-error">{formErrors?.email}</span>
@@ -68,7 +68,7 @@
 				</div>
 			{/if}
 			<div class="text-center">
-				<button class="btn btn-primary min-w-full" onclick={handleChangeEmailClick}>Save</button>
+				<button class="btn min-w-full btn-primary" onclick={handleChangeEmailClick}>Save</button>
 			</div>
 		</div>
 	</div>
