@@ -5,14 +5,14 @@
 </script>
 
 <div class="container mx-auto p-6">
-	<div class="p-6 rounded-lg shadow-md bg-base-100">
-		<h1 class="text-2xl font-bold mb-6">Sample Notifications Page</h1>
+	<div class="rounded-lg bg-base-100 p-6 shadow-md">
+		<h1 class="mb-6 text-2xl font-bold">Sample Notifications Page</h1>
 
 		{#each notificationsState.notifications as notification, i}
 			<div
 				role="button"
 				tabindex={i}
-				class="block p-4 rounded-lg hover:bg-base-200 transition relative cursor-default"
+				class="relative block cursor-default rounded-lg p-4 transition hover:bg-base-200"
 				class:bg-base-200={notification?.new}
 				onmouseover={() => {
 					if (notification?.new) {
@@ -24,18 +24,18 @@
 				{#if notification?.new}
 					<div class="absolute -top-2 -left-2">
 						<span
-							class="indicator-item indicator-start badge badge-primary text-xs font-bold py-1 px-2 rounded-full"
+							class="indicator-item badge rounded-full badge-soft badge-sm px-2 py-1 text-xs font-bold indicator-start badge-primary"
 							>New</span
 						>
 					</div>
 				{/if}
-				<div class="flex flex-col md:flex-row justify-between">
+				<div class="flex flex-col justify-between md:flex-row">
 					<div>
 						<h2 class="text-lg font-semibold">{notification.title}</h2>
 						<p>{notification.description}</p>
 					</div>
 					<span
-						class="text-gray-500 text-sm mt-2 md:mt-0 md:ml-4 self-end md:self-center whitespace-nowrap"
+						class="mt-2 self-end text-sm whitespace-nowrap text-gray-500 md:mt-0 md:ml-4 md:self-center"
 						>{notification.date}</span
 					>
 				</div>

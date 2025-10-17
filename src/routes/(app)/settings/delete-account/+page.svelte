@@ -58,7 +58,7 @@
 			class="card mx-auto max-w-md bg-base-100
         p-6 shadow-xl lg:rounded-lg"
 		>
-			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
+			<a href="/settings" class="btn btn-circle text-left text-xl btn-ghost"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
 			<h2 class="mb-4 text-center text-2xl font-bold">Delete Account</h2>
@@ -75,14 +75,14 @@
 				<input
 					type="email"
 					id="email"
-					class="input input-bordered"
+					class="input-bordered input w-full"
 					placeholder="Current Email Address"
 					bind:value={email}
 				/>
 			</div>
 			<div class="text-center">
 				<button
-					class="btn btn-primary min-w-full"
+					class="btn min-w-full btn-primary"
 					onclick={() => dialogRef?.showModal?.()}
 					disabled={email !== pb?.authStore?.record?.email}>Delete My Account Forever</button
 				>

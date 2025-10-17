@@ -45,7 +45,7 @@
 
 	<div class="indicator">
 		<span
-			class="badge indicator-item badge-primary"
+			class="indicator-item badge badge-soft badge-sm badge-primary"
 			class:hidden={!notificationsState.notifications.find((notification) => notification?.new)}
 			>{notificationsState.notifications.filter((notification) => notification?.new).length}</span
 		>
@@ -54,10 +54,10 @@
 	<span class="text-xs">Notifications</span>
 {/snippet}
 
-<div class="btm-nav lg:hidden">
+<div class="dock lg:hidden">
 	{#each tabs as tab}
 		<button
-			class:active={selectedTab === tabs.indexOf(tab)}
+			class:dock-active={selectedTab === tabs.indexOf(tab)}
 			class="focus:bg-base-200"
 			onclick={async () => {
 				selectedTab = tabs.indexOf(tab);
@@ -71,7 +71,7 @@
 				{@const IconComponent =
 					selectedTab === tabs?.indexOf?.(tab) && tab?.iconSelected ? tab.iconSelected : tab.icon}
 				<IconComponent></IconComponent>
-				<span class="text-xs">{tab.title}</span>
+				<span class="dock-label text-xs">{tab.title}</span>
 			{/if}
 		</button>
 	{/each}
